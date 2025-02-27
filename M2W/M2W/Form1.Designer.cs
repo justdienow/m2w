@@ -37,12 +37,15 @@
             progressBar = new ProgressBar();
             lblStatus = new Label();
             rtbLog = new RichTextBox();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
             SuspendLayout();
             // 
             // txtInputPath
             // 
             txtInputPath.AccessibleDescription = "For the MP3 file path.";
-            txtInputPath.Location = new Point(12, 12);
+            txtInputPath.Location = new Point(80, 15);
             txtInputPath.Name = "txtInputPath";
             txtInputPath.Size = new Size(294, 23);
             txtInputPath.TabIndex = 0;
@@ -51,7 +54,7 @@
             // btnBrowseInput
             // 
             btnBrowseInput.AccessibleDescription = "For selecting an MP3 file.";
-            btnBrowseInput.Location = new Point(338, 12);
+            btnBrowseInput.Location = new Point(406, 15);
             btnBrowseInput.Name = "btnBrowseInput";
             btnBrowseInput.Size = new Size(75, 23);
             btnBrowseInput.TabIndex = 1;
@@ -61,7 +64,7 @@
             // txtOutputPath
             // 
             txtOutputPath.AccessibleDescription = "For the WAV file path.";
-            txtOutputPath.Location = new Point(12, 50);
+            txtOutputPath.Location = new Point(80, 53);
             txtOutputPath.Name = "txtOutputPath";
             txtOutputPath.Size = new Size(294, 23);
             txtOutputPath.TabIndex = 2;
@@ -69,7 +72,7 @@
             // btnBrowseOutput
             // 
             btnBrowseOutput.AccessibleDescription = "For selecting output location.";
-            btnBrowseOutput.Location = new Point(338, 50);
+            btnBrowseOutput.Location = new Point(406, 53);
             btnBrowseOutput.Name = "btnBrowseOutput";
             btnBrowseOutput.Size = new Size(75, 23);
             btnBrowseOutput.TabIndex = 3;
@@ -79,7 +82,7 @@
             // btnConvert
             // 
             btnConvert.AccessibleDescription = "To start conversion.";
-            btnConvert.Location = new Point(231, 100);
+            btnConvert.Location = new Point(299, 103);
             btnConvert.Name = "btnConvert";
             btnConvert.Size = new Size(75, 23);
             btnConvert.TabIndex = 4;
@@ -89,7 +92,7 @@
             // btnCancel
             // 
             btnCancel.AccessibleDescription = "To cancel conversion.";
-            btnCancel.Location = new Point(338, 100);
+            btnCancel.Location = new Point(406, 103);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 5;
@@ -99,35 +102,68 @@
             // progressBar
             // 
             progressBar.AccessibleDescription = "To show conversion progress.";
-            progressBar.Location = new Point(12, 79);
+            progressBar.Location = new Point(12, 82);
             progressBar.Name = "progressBar";
-            progressBar.Size = new Size(401, 15);
+            progressBar.Size = new Size(469, 15);
             progressBar.TabIndex = 6;
             // 
             // lblStatus
             // 
             lblStatus.AccessibleDescription = "To display status messages.";
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(12, 108);
+            lblStatus.Location = new Point(10, 107);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(38, 15);
+            lblStatus.Size = new Size(39, 15);
             lblStatus.TabIndex = 7;
-            lblStatus.Text = "label1";
+            lblStatus.Text = "Status";
+            lblStatus.Click += lblStatus_Click;
             // 
             // rtbLog
             // 
             rtbLog.AccessibleDescription = "To log messages.";
-            rtbLog.Location = new Point(12, 142);
+            rtbLog.Location = new Point(12, 160);
             rtbLog.Name = "rtbLog";
-            rtbLog.Size = new Size(401, 173);
+            rtbLog.Size = new Size(469, 173);
             rtbLog.TabIndex = 8;
             rtbLog.Text = "";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(62, 15);
+            label1.TabIndex = 9;
+            label1.Text = "Source file";
+            label1.Click += label1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(10, 56);
+            label2.Name = "label2";
+            label2.Size = new Size(64, 15);
+            label2.TabIndex = 10;
+            label2.Text = "Output file";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(10, 142);
+            label3.Name = "label3";
+            label3.Size = new Size(32, 15);
+            label3.TabIndex = 11;
+            label3.Text = "Logs";
+            label3.Click += label3_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(426, 327);
+            ClientSize = new Size(490, 343);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(rtbLog);
             Controls.Add(lblStatus);
             Controls.Add(progressBar);
@@ -155,5 +191,8 @@
         private ProgressBar progressBar;
         private Label lblStatus;
         private RichTextBox rtbLog;
+        private Label label1;
+        private Label label2;
+        private Label label3;
     }
 }
