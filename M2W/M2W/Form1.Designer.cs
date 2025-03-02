@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             txtInputPath = new TextBox();
             btnBrowseInput = new Button();
             txtOutputPath = new TextBox();
@@ -173,6 +174,7 @@
             Controls.Add(txtOutputPath);
             Controls.Add(btnBrowseInput);
             Controls.Add(txtInputPath);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "M2W";
             ResumeLayout(false);

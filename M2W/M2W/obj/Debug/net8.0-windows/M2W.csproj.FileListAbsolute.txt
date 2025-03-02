@@ -1,0 +1,2 @@
+S:\Projects\018 - MP3 to WAV Converter\Software\m2w\M2W\M2W\obj\Debug\net8.0-windows\M2W.csproj.AssemblyReference.cache
+S:\Projects\018 - MP3 to WAV Converter\Software\m2w\M2W\M2W\obj\Debug\net8.0-windows\M2W.g.resources

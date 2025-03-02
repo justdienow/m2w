@@ -1,9 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +23,14 @@ namespace M2W
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Opacity = 1;
             this.TopMost = true;
+
+            // Load app version dynamically
+            lblAppName.Text = "M2W - MP3 to WAV Converter";
+            lblVersion.Text = $"Version {Assembly.GetExecutingAssembly().GetName().Version}";
+            lblStatus.Text = "Loading, please wait...";
+
+            // Set the splash image (update path if necessary)
+            pictureBoxLogo.Image = Image.FromStream(new MemoryStream(Properties.Resources.M2W_Splash)); // Make sure you have an image in Resources
 
             System.Windows.Forms.Timer displayTimer = new System.Windows.Forms.Timer { Interval = 2000 };
             displayTimer.Tick += (s, e) =>
