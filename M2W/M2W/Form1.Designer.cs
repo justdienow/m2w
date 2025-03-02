@@ -49,7 +49,6 @@
             txtInputPath.Name = "txtInputPath";
             txtInputPath.Size = new Size(294, 23);
             txtInputPath.TabIndex = 0;
-            txtInputPath.TextChanged += textBox1_TextChanged;
             // 
             // btnBrowseInput
             // 
@@ -60,6 +59,7 @@
             btnBrowseInput.TabIndex = 1;
             btnBrowseInput.Text = "Select";
             btnBrowseInput.UseVisualStyleBackColor = true;
+            btnBrowseInput.Click += btnBrowseInput_Click;
             // 
             // txtOutputPath
             // 
@@ -78,6 +78,7 @@
             btnBrowseOutput.TabIndex = 3;
             btnBrowseOutput.Text = "Select";
             btnBrowseOutput.UseVisualStyleBackColor = true;
+            btnBrowseOutput.ClientSizeChanged += btnBrowseOutput_Click;
             // 
             // btnConvert
             // 
@@ -88,6 +89,7 @@
             btnConvert.TabIndex = 4;
             btnConvert.Text = "Convert";
             btnConvert.UseVisualStyleBackColor = true;
+            btnConvert.Click += btnConvert_Click;
             // 
             // btnCancel
             // 
@@ -98,6 +100,7 @@
             btnCancel.TabIndex = 5;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // progressBar
             // 
@@ -113,10 +116,9 @@
             lblStatus.AutoSize = true;
             lblStatus.Location = new Point(10, 107);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(39, 15);
+            lblStatus.Size = new Size(45, 15);
             lblStatus.TabIndex = 7;
-            lblStatus.Text = "Status";
-            lblStatus.Click += lblStatus_Click;
+            lblStatus.Text = "Status: ";
             // 
             // rtbLog
             // 
@@ -132,19 +134,18 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 18);
             label1.Name = "label1";
-            label1.Size = new Size(62, 15);
+            label1.Size = new Size(65, 15);
             label1.TabIndex = 9;
-            label1.Text = "Source file";
-            label1.Click += label1_Click;
+            label1.Text = "Source file:";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(10, 56);
             label2.Name = "label2";
-            label2.Size = new Size(64, 15);
+            label2.Size = new Size(67, 15);
             label2.TabIndex = 10;
-            label2.Text = "Output file";
+            label2.Text = "Output file:";
             // 
             // label3
             // 
@@ -154,7 +155,6 @@
             label3.Size = new Size(32, 15);
             label3.TabIndex = 11;
             label3.Text = "Logs";
-            label3.Click += label3_Click;
             // 
             // Form1
             // 
@@ -175,7 +175,6 @@
             Controls.Add(txtInputPath);
             Name = "Form1";
             Text = "M2W";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
