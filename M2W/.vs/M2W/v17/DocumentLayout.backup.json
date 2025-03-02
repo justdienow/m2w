@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "S:\\Projects\\018 - MP3 to WAV Converter\\Software\\m2w\\M2W\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BA22C675-C736-4A6F-A949-58D4FBC1CF10}|M2W\\M2W.csproj|s:\\projects\\018 - mp3 to wav converter\\software\\m2w\\m2w\\m2w\\splashscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BA22C675-C736-4A6F-A949-58D4FBC1CF10}|M2W\\M2W.csproj|solutionrelative:m2w\\splashscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{BA22C675-C736-4A6F-A949-58D4FBC1CF10}|M2W\\M2W.csproj|s:\\projects\\018 - mp3 to wav converter\\software\\m2w\\m2w\\m2w\\properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA22C675-C736-4A6F-A949-58D4FBC1CF10}|M2W\\M2W.csproj|solutionrelative:m2w\\properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA22C675-C736-4A6F-A949-58D4FBC1CF10}|M2W\\M2W.csproj|s:\\projects\\018 - mp3 to wav converter\\software\\m2w\\m2w\\m2w\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{BA22C675-C736-4A6F-A949-58D4FBC1CF10}|M2W\\M2W.csproj|solutionrelative:m2w\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SplashScreen.cs [Design]",
-              "DocumentMoniker": "S:\\Projects\\018 - MP3 to WAV Converter\\Software\\m2w\\M2W\\M2W\\SplashScreen.cs",
-              "RelativeDocumentMoniker": "M2W\\SplashScreen.cs",
-              "ToolTip": "S:\\Projects\\018 - MP3 to WAV Converter\\Software\\m2w\\M2W\\M2W\\SplashScreen.cs [Design]",
-              "RelativeToolTip": "M2W\\SplashScreen.cs [Design]",
+              "Title": "Resources.Designer.cs",
+              "DocumentMoniker": "S:\\Projects\\018 - MP3 to WAV Converter\\Software\\m2w\\M2W\\M2W\\Properties\\Resources.Designer.cs",
+              "RelativeDocumentMoniker": "M2W\\Properties\\Resources.Designer.cs",
+              "ToolTip": "S:\\Projects\\018 - MP3 to WAV Converter\\Software\\m2w\\M2W\\M2W\\Properties\\Resources.Designer.cs",
+              "RelativeToolTip": "M2W\\Properties\\Resources.Designer.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAADoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-02T03:24:47.513Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-03-02T07:51:45.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Resources.resx",
+              "DocumentMoniker": "S:\\Projects\\018 - MP3 to WAV Converter\\Software\\m2w\\M2W\\M2W\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "M2W\\Properties\\Resources.resx",
+              "ToolTip": "S:\\Projects\\018 - MP3 to WAV Converter\\Software\\m2w\\M2W\\M2W\\Properties\\Resources.resx",
+              "RelativeToolTip": "M2W\\Properties\\Resources.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-03-02T07:48:40.737Z",
+              "EditorCaption": ""
             }
           ]
         }
