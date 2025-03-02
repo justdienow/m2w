@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             txtInputPath = new TextBox();
             btnBrowseInput = new Button();
             txtOutputPath = new TextBox();
@@ -79,7 +78,7 @@
             btnBrowseOutput.TabIndex = 3;
             btnBrowseOutput.Text = "Select";
             btnBrowseOutput.UseVisualStyleBackColor = true;
-            btnBrowseOutput.ClientSizeChanged += btnBrowseOutput_Click;
+            btnBrowseOutput.Click += btnBrowseOutput_Click;
             // 
             // btnConvert
             // 
@@ -174,7 +173,6 @@
             Controls.Add(txtOutputPath);
             Controls.Add(btnBrowseInput);
             Controls.Add(txtInputPath);
-            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "M2W";
             ResumeLayout(false);

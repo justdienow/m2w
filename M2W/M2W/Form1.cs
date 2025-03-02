@@ -44,29 +44,35 @@ namespace M2W
             }
         }
 
-        private void btnConvert_Click(object? sender, EventArgs e)
+        private async void btnConvert_Click(object? sender, EventArgs e)
         {
-            string inputPath = txtInputPath!.Text;
-            string outputPath = txtOutputPath!.Text;
+            string inputPath = txtInputPath.Text;
+            string outputPath = txtOutputPath.Text;
 
             if (string.IsNullOrEmpty(inputPath) || string.IsNullOrEmpty(outputPath))
             {
                 MessageBox.Show("Please select input and output paths.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LogMessage("Conversion attempt failed: Missing input or output path.");
                 return;
             }
 
+            lblStatus.Text = "Converting...";
+            btnConvert.Enabled = false;
+
+            cancellationTokenSource = new CancellationTokenSource();
+
             try
             {
-                lblStatus!.Text = "Starting...";
-                cancellationTokenSource = new CancellationTokenSource();
-                ConvertMp3ToWav(inputPath, outputPath, cancellationTokenSource.Token);
+                await Task.Run(() => ConvertMp3ToWav(inputPath, outputPath, cancellationTokenSource.Token));
+                lblStatus.Text = "Completed";
             }
             catch (Exception ex)
             {
-                lblStatus!.Text = "Error";
-                LogMessage($"Error during conversion: {ex.Message}");
+                lblStatus.Text = "Error";
                 MessageBox.Show($"Error: {ex.Message}", "Conversion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnConvert.Enabled = true;
             }
         }
 
@@ -78,12 +84,15 @@ namespace M2W
             using var pcmStream = WaveFormatConversionStream.CreatePcmStream(mp3Reader);
             using var waveFileWriter = new WaveFileWriter(wavFilePath, pcmStream.WaveFormat);
 
-            progressBar!.Visible = true;
-            progressBar.Value = 0;
-            btnCancel!.Enabled = true;
-            lblStatus!.Text = "Converting...";
+            Invoke(() =>
+            {
+                progressBar.Visible = true;
+                progressBar.Value = 0;
+                btnCancel.Enabled = true;
+                lblStatus.Text = "Converting...";
+            });
 
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[16384]; // Larger buffer for better performance
             int bytesRead;
             long totalBytes = pcmStream.Length;
             long processedBytes = 0;
@@ -92,9 +101,12 @@ namespace M2W
             {
                 if (cancellationToken.IsCancellationRequested)
                 {
-                    lblStatus.Text = "Cancelled";
-                    LogMessage("Conversion cancelled.");
-                    MessageBox.Show("Conversion cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Invoke(() =>
+                    {
+                        lblStatus.Text = "Cancelled";
+                        LogMessage("Conversion cancelled.");
+                        MessageBox.Show("Conversion cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    });
                     return;
                 }
 
@@ -102,13 +114,16 @@ namespace M2W
                 processedBytes += bytesRead;
 
                 int progress = (int)((processedBytes * 100) / totalBytes);
-                progressBar.Value = Math.Min(progress, 100);
+                Invoke(() => progressBar.Value = Math.Min(progress, 100));
             }
 
-            lblStatus.Text = "Completed";
-            LogMessage("Conversion completed successfully.");
-            progressBar.Visible = false;
-            btnCancel.Enabled = false;
+            Invoke(() =>
+            {
+                lblStatus.Text = "Completed";
+                LogMessage("Conversion completed successfully.");
+                progressBar.Visible = false;
+                btnCancel.Enabled = false;
+            });
         }
 
         private void btnCancel_Click(object? sender, EventArgs e)
@@ -119,9 +134,16 @@ namespace M2W
 
         private void LogMessage(string message)
         {
-            string timestamp = DateTime.Now.ToString("HH:mm:ss");
-            rtbLog!.AppendText($"[{timestamp}] {message}\n");
-            rtbLog.ScrollToCaret();
+            if (rtbLog.InvokeRequired)
+            {
+                rtbLog.Invoke(new Action(() => LogMessage(message)));
+            }
+            else
+            {
+                string timestamp = DateTime.Now.ToString("HH:mm:ss");
+                rtbLog.AppendText($"[{timestamp}] {message}\n");
+                rtbLog.ScrollToCaret();
+            }
         }
 
         private void Form1_DragEnter(object? sender, DragEventArgs e)
