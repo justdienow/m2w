@@ -1,73 +1,42 @@
-# Ignore Visual Studio specific files
+# Visual Studio local state — never commit
 .vs/
-*.user
 *.suo
+*.user
 *.userosscache
 *.sln.docstates
-*.cache
-*.log
 
-# Ignore build and bin/obj directories
+# Build output
 bin/
 obj/
 out/
-TestResults/
-app.publish/
-*.vspscc
-*.vssscc
 
-# Ignore NuGet packages
+# NuGet
 *.nupkg
-packages/
 project.lock.json
-package-lock.json
-node_modules/
 
-# Ignore JetBrains Rider / ReSharper files
-.idea/
-*.sln.iml
+# Publish artifacts
+publish/
+*.pubxml
+*.pubxml.user
 
-# Ignore macOS files
-.DS_Store
-
-# Ignore compiled DLLs and executables
-*.exe
-*.dll
-*.pdb
-
-# Ignore temporary files
-*.tmp
-*.bak
-
-# Ignore user secrets
-secrets.json
-secrets/
-.env
-.env.*
-
-# Ignore database and entity framework migrations
-Migrations/
-
-# Ignore logs
-*.log
-logs/
-
-# Ignore coverage reports
+# Test results
+TestResults/
 coverage/
 *.coverage
 *.coveragexml
 
-# Ignore Publish artifacts
-publish/
-*.deploy.cmd
-*.deploy-readme.txt
-*.pubxml
-*.pubxml.user
+# Logs and temp files
+*.log
+logs/
+*.tmp
+*.bak
 
-# Ignore debug/release folders
-Debug/
-Release/
+# OS files
+.DS_Store
+Thumbs.db
 
-# Ignore Rider and VS Code settings
+# JetBrains Rider
+.idea/
+
+# VS Code
 .vscode/
-*.code-workspace
